@@ -16,7 +16,8 @@ h3:hover{
     position:absolute; 
     bottom:20px;
     left:0%; 
-    right:0%; 
+    right:0%;
+    z-index: -1;
   }
   .footer h3, footer h3{
     font-family: 'Lobster', cursive;
@@ -25,4 +26,7 @@ h3:hover{
     text-align: center;
     color: #adadad;
     margin-top: 2rem;
+  }
+  .row{
+    margin-right: 0px!important;
   }
