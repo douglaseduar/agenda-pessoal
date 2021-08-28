@@ -1,7 +1,7 @@
 #  📅  Cadastro de tarefas (agenda)
 ## Apresentação
 
-Sistema para cadastro e controle de tarefas (agenda), onde pode ser editada, cadastrada, excluida e renovada. Além de outras funções de cálculos referente a prazos.  
+Sistema para cadastro e controle de tarefas (agenda), onde pode ser editada, cadastrada, excluída e renovada. Além de outras funções de cálculos referente a prazos.  
 - Projeto baseado no repositório [ToDoList](https://github.com/ZxPedro/ToDoList).
 
 <img src="assets/img/layout.png">
