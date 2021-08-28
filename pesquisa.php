@@ -8,7 +8,7 @@ include_once("config/conexao.php");
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="aseets/img/66276.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/66276.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" >
