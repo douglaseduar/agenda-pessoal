@@ -1,0 +1,28 @@
+h3:hover{
+    background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(3, 129, 212));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  footer a:hover{
+    text-decoration: none;
+  }
+  .qtd{
+    text-align-last: center;
+    margin-top: 45px;
+    font-weight: 700;
+    font-size: 16pt;
+}
+.cadastro{
+    position:absolute; 
+    bottom:20px;
+    left:0%; 
+    right:0%; 
+  }
+  .footer h3, footer h3{
+    font-family: 'Lobster', cursive;
+    text-transform:capitalize;
+    font-size: 30pt;
+    text-align: center;
+    color: #adadad;
+    margin-top: 2rem;
+  }
