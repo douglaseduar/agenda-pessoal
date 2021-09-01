@@ -16,6 +16,7 @@ $conta_linhas = mysqli_num_rows($resultado_usuarios);
         <title>Tarefas - HOME</title>
         <link rel="shortcut icon" href="assets/img/66276.png"/>
         <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     </head>
     <body style="background: #dedede">
     <div class="container">
