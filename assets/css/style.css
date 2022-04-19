@@ -13,7 +13,6 @@ h3:hover{
     font-size: 16pt;
 }
 .cadastro{
-    position:absolute; 
     bottom:20px;
     left:0%; 
     right:0%;
@@ -30,3 +29,14 @@ h3:hover{
   .row{
     margin-right: 0px!important;
   }
+  .container-fluid{
+    display: flex!important;
+  }
+  @media only screen and (max-width: 600px) {
+    .container-fluid {
+      display: block!important;
+    }
+  }
+.teste{
+  max-height: 760px!important;
+}
