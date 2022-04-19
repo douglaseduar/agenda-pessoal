@@ -11,7 +11,6 @@ session_start();
         <title>Cadastrar Tarefa</title>
         <link rel="shortcut icon" href="assets/img/66276.png"/>
         <link rel="stylesheet" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     </head>
     <body>
     <nav class="navbar navbar-light">

@@ -1,8 +1,15 @@
 <?php 
 include_once("config/conexao.php");
 
-            ini_set('display_errors', 0 );
-            error_reporting(0);
+       ini_set('display_errors', 0 );
+        error_reporting(0);
+
+
+            $result_cursos5 = "SELECT * FROM anotacoes WHERE id = 1";
+            $resultado_cursos5 = mysqli_query($conn, $result_cursos5);
+            $result_cursos6 = "SELECT * FROM anotacoes WHERE id = 1";
+            $resultado_cursos6 = mysqli_query($conn, $result_cursos6);
+
 ?>
 
 <!doctype html>
@@ -12,7 +19,6 @@ include_once("config/conexao.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" >
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Lista de Tarefas</title>
 </head>
@@ -26,7 +32,7 @@ include_once("config/conexao.php");
                     <input class="form-control mr-sm-2" type="search" placeholder="Nome da Tarefa" aria-label="Search"
                            name="pesquisa">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                </form>
+                </form> 
             </nav>
         </div>
     </div>
@@ -45,15 +51,11 @@ include_once("config/conexao.php");
                     date_default_timezone_set('America/Sao_Paulo');
                     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
                     $prazo = strftime("%d-%m-%Y | %H:%M", strtotime($prazo1));
-                    $prazoconta = strftime("%d-%m-%Y", strtotime($prazo1));
+                    $prazoconta = strftime("%d-%m-%y", strtotime($prazo1));
                     $hojeconta = date('d-m-y');
-                    $dia = strftime("%d", strtotime($prazo1));    
-                    $dia1 = date('d');
-                    $mes = strftime("%m", strtotime($prazo1));
-                    $mes1 = date('m');
-                    $ano = strftime("%Y", strtotime($prazo1));
-                    $ano1 = date('Y');
-                    $calculo = $prazoconta - $hojeconta;
+                    $hojeteste = date('Y-m-d H:i:s');
+                    $today = date('Y-m-d');
+                    $last = strftime("%Y-%m-%d", strtotime($prazo1));
                     
 
                     echo "<div class='col-sm-4'>
@@ -61,21 +63,19 @@ include_once("config/conexao.php");
                                 <div class='card-body'>
                                     <h5 class='card-title'>$tarefa</h5>
                                     <p class='card-text'>$desc</p>";
-                                    if (($dia <= $dia1) && ($mes <= $mes1) && ($ano <= $ano1)){
+                                    if (strtotime($prazo1) < strtotime($hojeteste)){
                                         echo  "<p class='card-text' style='color: red;'> $prazo</p>";
-                                      } else echo "<p class='card-text'> $prazo</p>";
-                                      if(($mes1 > $mes) && ($ano1 > $ano)){
-                                          echo "zero dias.";
-                                      } else {
-                                          $calculomes = $mes - $mes1;
-                                          $calculomes2 = $calculomes * 30;
-                                          $calculoano = $ano - $ano1;
-                                          $calculoano1 = $calculoano * 365;
-                                          $calculodia = $calculomes2 + $calculo + $calculoano1;  
-                                          if(($calculodia < 0) && ($ano1 >= $ano)){echo "ATRASADA";}
-                                          else{echo "falta $calculodia dias";}
-                                          
-                                      }
+                                       
+                                    } else echo "<p class='card-text'> $prazo</p>";
+                                    $diferenca = strtotime($today) - strtotime($last);
+                                    $dias = floor($diferenca / (60 * 60 * 24));
+                                    $auxdias = $dias * -1;
+                                    if($auxdias < 0){
+                                        echo "ATRASADA";
+                                    }else if($auxdias == 0){
+                                        echo "VENCE HOJE";
+                                    }else  echo "falta $auxdias dias";
+                                    
                                       
                                       echo "<br>";
                                       
@@ -91,10 +91,23 @@ include_once("config/conexao.php");
                                 </div>
                             </div>
                     </div>";
-                }
+                } 
             ?>
+        </div>
+    <div class="card teste" style="min-width: 370px;">
+  <div class="card-body">
+    <h5 class="card-title">Anotações:</h5>
+    <div class="form-floating">
+        <form action="anot.php" method="post" id="form">
+  <textarea class="form-control" style="height: 550px" name="anot" form="form"><?php while($dado5 = mysqli_fetch_assoc($resultado_cursos5)){ echo $dado5["anotacao"];}?></textarea><br>
+  <figcaption class="figure-caption text-right"><?php while($dado6 = mysqli_fetch_assoc($resultado_cursos6)){ echo $dado6["modificado"];}?></figcaption>
+  <input type="submit" value="Enviar" class="btn btn-outline-primary">
+  </form>
+</div>
+  </div>
+</div>
     </div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
             </body>
